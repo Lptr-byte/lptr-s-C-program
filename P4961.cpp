@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 const int MAXN = 1005;
 int n, m, res = 0, Map[MAXN][MAXN], vis[MAXN][MAXN];
 int dx[] = {0, 0, 1, 1, -1, -1, 1, -1};
@@ -8,7 +8,8 @@ void dfs(int x, int y){
 	vis[x][y] = 1;
 	for(int i = 0; i < 8; i++){
 		int tx = x + dx[i], ty = y +dy[i];
-		if(tx < 1 || tx > n || ty < 1 || ty > m || vis[tx][ty])	continue;
+		if(tx < 1 || tx > n || ty < 1 || ty > m || vis[tx][ty])	
+			continue;
 		dfs(tx, ty);
 	}
 }

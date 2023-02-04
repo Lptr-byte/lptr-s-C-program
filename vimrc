@@ -1,7 +1,8 @@
+au VimEnter * NERDTreeToggle
 let mapleader=" "
 syntax on
 set number
-set norelativenumber
+set relativenumber
 set cursorline
 set wrap
 set showcmd
@@ -12,19 +13,32 @@ exec "nohlsearch"
 set ignorecase
 set smartcase
 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
 noremap J 5j
 noremap K 5k
 
 noremap = nzz
 noremap - Nzz
 noremap <LEADER><CR> :nohlsearch<CR>
+noremap <LEADER>l <C-w>l
+noremap <LEADER>j <C-w>h
 
 inoremap jj <ESC>
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+"inoremap < <><ESC>i
 
 map s :<nop>
 map S :w<CR>
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
+
 map <C-n> :NERDTreeToggle<CR>
 
 " ====================
@@ -77,21 +91,54 @@ nmap <leader>f  <Plug>(coc-format-selected)
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"===themes===
+
 Plug 'connorholyday/vim-snazzy'
+Plug 'morhetz/gruvbox'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'tjdevries/gruvbuddy.nvim'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'w0ng/vim-hybrid'
+
+"===markdown===
+Plug 'suan/vim-instant-markdown'
+Plug 'tpope/vim-markdown'
+
+Plug 'yggdroot/indentline'
+Plug 'luochen1990/rainbow'
+
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'barnch': 'release'}
-Plug 'tjdevries/colorbuddy.vim'
-Plug 'tjdevries/gruvbuddy.nvim'
-Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
 
+"===lightgruvbox===
 "let g:lightline = {}
 "let g:lightline.colorscheme = 'gruvbox'
 
-color snazzy
-let g:SnazzyTransparent = 1
+"===snazzy===
+"colorscheme snazzy
+"let g:SnazzyTransparent = 1
+
+"===gruvbox===
+"set background=dark
+"let g:gruvbox_italic=1
+"colorscheme gruvbox
+
+"===hybrid===
+set background=dark
+colorscheme hybrid
+
+hi Normal ctermfg=252 ctermbg = none
+
+" airline-theme
+"let g:airline_theme='solarized'
+let g:airline_theme='angr' 
+
+let g:rainbow_active=1
 
