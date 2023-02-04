@@ -16,7 +16,7 @@ void dfs(int x, int y, int color){
 int main(){
 	scanf("%d%d", &n, &m);
 	for(int i = 1; i <= n; i++){
-		char c[20];
+		char c[105];
 		scanf("%s", c);
 		for(int j = 0; j < m; j++){
 			Map[i][j + 1] = c[j] - '0';
