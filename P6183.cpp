@@ -25,9 +25,9 @@ void print(){
 			if (ans[i][j] == 0)
 				cout << "O";
 			else
-              cout << "X";
+				cout << "X";
             if (j == n)
-              cout << endl;
+				cout << endl;
           }
     }
 	for(int i = 1; i <= n; i++)
@@ -56,6 +56,7 @@ void dfs(int step){
 			dfs(step + 1);
 			vis[h] = 0;
 		}
+		temp[i] = !temp[i];
 	}
 }
 
