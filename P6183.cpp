@@ -2,6 +2,15 @@
 using namespace std;
 int n, vis[32800], temp[20], ans[32800][20], goal[20];
 
+bool check(){
+	int a = 0;
+	for(int i = 1; i <= n; i++)
+		a += temp[i];
+	if(a == 1)
+		return true;
+	return false;
+}
+
 int Hash(){
 	int res = 0;
 	for(int i = 1; i <= n; i++)
@@ -14,7 +23,7 @@ void print(){
 	for (int i = 0; i < (1 << n); i++) {
 		for (int j = 1; j <= n; j++) {
 			if (ans[i][j] == 0)
-				cout << 0;
+				cout << "O";
 			else
               cout << "X";
             if (j == n)
@@ -22,14 +31,16 @@ void print(){
           }
     }
 	for(int i = 1; i <= n; i++)
-		cout << 0;
+		cout << "O";
 	cout << endl;
 }
 
 void dfs(int step){
 	if(step == (1 << n)){
-		print();
-		exit(0);
+		if(check()){
+			print();
+			exit(0);
+		}
 		return;
 	}
 	for(int i = 1; i <= n; i++){
