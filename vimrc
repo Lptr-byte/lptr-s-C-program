@@ -34,7 +34,7 @@ inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 "inoremap < <><ESC>i
 
-map s :<nop>
+map s :<nop><CR>
 map S :w<CR>
 map Q :q<CR>
 map R :source $MYVIMRC<CR>
