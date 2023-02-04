@@ -1,6 +1,7 @@
-#include <cstdio>
+#include <iostream>
 
 int main(){
-	printf("%d\n", 111);
+	printf("test\n");
+
 	return 0;
 }
